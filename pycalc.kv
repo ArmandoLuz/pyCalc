@@ -1,10 +1,10 @@
 <ScreenManagement>:
     CalculatorScreen:
         name: "calculator"
+        id: calculator
+        display: data
 
-        CalculatorUI:
-            id: calculator
-            display: data
+        GridLayout:
             rows: 7
             padding: 5
             spacing: 5
@@ -88,22 +88,24 @@
 
     HistoryScreen:
         name: "history"
+        id: history
+        list_view: list
 
-        HistoryUI:
-            id: history
+        GridLayout:
             rows: 2
             padding: 5
             spacing: 5
 
             BoxLayout:
                 spacing: 10
+                height: 48
+
                 Button:
                     text: "Voltar"
                     on_press: root.go_to('calculator')
                 Button:
                     text: "Limpar"
                     on_press: history.clear()
-            
             BoxLayout:
-                Button:
-                    text: history.load_history()
+                Label:
+                    id: list
